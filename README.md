@@ -30,17 +30,17 @@ really a list containing a function to
 <!-- -->
 
     makeVector <- function(x = numeric()) {
-            m <- NULL                               #initialize the vector
-            set <- function(y) {
+            m <- NULL                                   #initialize storage object m
+            set <- function(y) {                        #create the matrix
                     x <<- y
                     m <<- NULL
             }
-            get <- function() x
-            setmean <- function(mean) m <<- mean
+            get <- function() x                         #get value
+            setmean <- function(mean) m <<- mean        #set the value of the mean
             getmean <- function() m
             list(set = set, get = get,
                  setmean = setmean,
-                 getmean = getmean)
+                 getmean = getmean)                     #get the value of the mean
     }
 
 The following function calculates the mean of the special "vector"
@@ -50,6 +50,7 @@ cache and skips the computation. Otherwise, it calculates the mean of
 the data and sets the value of the mean in the cache via the `setmean`
 function.
 
+#If the inverse has already been calculated, then retrieve the inverse from the cache
     cachemean <- function(x, ...) {
             m <- x$getmean()
             if(!is.null(m)) {
