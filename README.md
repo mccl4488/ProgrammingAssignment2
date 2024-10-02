@@ -30,7 +30,7 @@ really a list containing a function to
 <!-- -->
 
     makeVector <- function(x = numeric()) {
-            m <- NULL
+            m <- NULL                               #initialize the vector
             set <- function(y) {
                     x <<- y
                     m <<- NULL
